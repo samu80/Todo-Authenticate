@@ -1,0 +1,34 @@
+<br/><br/>
+<%= form_name %>
+<%= @user.errors.full_messages.to_sentence if @user.errors.any? %>
+<%= form_with model: @user do |form| %>
+    <br/><br/>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <br/><br/>
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+    <br/><br/>
+    <%= form.label :city %>
+    <%= form.select :city, ["Pune", "Mumbai", "Beed"] %>
+    <br/><br/>
+    <%= form.label :birth_date %>
+    <%= form.date_field :birth_date %>
+    <br/><br/>
+    <%= form.label :gender %>
+    <%= form.radio_button :gender, "male", :checked => true %> Male
+    <%= form.radio_button :gender, "female" %> Female
+    <br/><br/>
+    <%= form.label :phone %>
+    <%= form.telephone_field :phone %>
+    <br/><br/>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+    <br/><br/>
+    <%= form.label :password %>
+    <%= form.password_field :encrypted_password %>
+    <br/><br/>
+    <%= form.submit %>
+  <% end %>
+<br/> <br/>
+  

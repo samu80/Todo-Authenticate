@@ -1,0 +1,44 @@
+<h1>Listing Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Birth Date</th>
+      <th>Gender</th>
+      <th>Phone</th>
+      <th>City</th>
+      <th>Email</th>
+      <th colspan="7"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        
+        <td><%= user.age %></td>
+
+        <td><%= user.birth_date %></td>
+        
+        <td><%= user.gender %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.city %></td>
+        <td><%= user.email %></td>
+
+        <td><%= link_to "Edit User", edit_user_path(user) %></td>
+
+        <td><%= button_to "Delete User", user_path(user), method: "delete", data: { confirm: "Want to delete?" } %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<br/> <br/>
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
